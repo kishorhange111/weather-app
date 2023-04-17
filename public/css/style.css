@@ -1,0 +1,43 @@
+h1 {
+  font-size: 48px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+.header {
+  flex: 1 0 auto;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-shrink: 0;
+}
+
+.horizontal-line {
+  width: 100vw;
+}
+.weather-form {
+  width: 50vw;
+  margin: 20px auto;
+}
+.button {
+  background-color: #fff;
+  border-radius: 7px;
+  border-width: 1px;
+  padding: 7px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  /* font-family: sans-serif; */
+}
+.button:hover {
+  color: #fff;
+  background-color: #166534;
+}
+input {
+  padding: 5px 10px;
+  width: 40vw;
+}
