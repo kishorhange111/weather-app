@@ -1,12 +1,17 @@
 {
-  "name": "web-server",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Weather web app built with Node.js, Express and Handlebars (city -> coordinates -> current weather)",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --env-file=.env src/app.js",
+    "dev": "node --watch --env-file=.env src/app.js"
   },
-  "author": "",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "keywords": ["nodejs", "express", "handlebars", "weather", "api"],
+  "author": "Kishor Hange",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",

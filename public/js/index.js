@@ -20,8 +20,14 @@ btn.addEventListener("submit", (e) => {
   msg3.textContent = "";
   msg4.textContent = "";
   msg5.textContent = "";
-  fetch("http://127.0.0.1:4000/weather?city=" + city).then((response) => {
+  // Relative URL: works on localhost and on any deployed host/port.
+  fetch("/weather?city=" + encodeURIComponent(city)).then((response) => {
     response.json().then((data) => {
+      if (data.error) {
+        msg1.style.textAlign = "center";
+        msg1.textContent = data.error;
+        return;
+      }
       msg1.style.textAlign = "left";
       msg1.style.marginTop = "0";
       msg.style.marginTop = "40px";

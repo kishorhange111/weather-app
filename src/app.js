@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
-const forecast = require("./utils/forcast.js");
+const forecast = require("./utils/forecast.js");
 const geocode = require("./utils/geocode.js");
 const app = express();
 
@@ -48,6 +48,7 @@ app.get("*", (req, res) => {
   res.render("404");
 });
 
-app.listen(4000, () => {
-  console.log("We are running server");
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Weather app running on http://localhost:${port}`);
 });
