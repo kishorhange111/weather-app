@@ -45,14 +45,11 @@ btn.addEventListener("submit", (e) => {
       msg.style.marginTop = "40px";
       msg.textContent = `Location : ${data.location.name}`;
       msg1.textContent = `Temperature : ${data.current.temperature}`;
-      msg2.textContent = ``;
       msg3.textContent = `Feelslike Temperature : ${data.current.feelslike}`;
       msg4.textContent = `Humidity : ${data.current.humidity}`;
-      // Note: msg5 is written twice, so the weather description below
-      // replaces the wind speed line on screen.
       msg5.textContent = `Wind Speed : ${data.current.wind_speed}`;
-      const t = data.current.weather_descriptions[0];
-      msg5.textContent = `Weather : ${t}`;
+      // msg2 is the last line on the page (see templates/views/index.hbs).
+      msg2.textContent = `Weather : ${data.current.weather_descriptions[0]}`;
     });
   });
 });
