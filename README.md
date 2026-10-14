@@ -1,8 +1,12 @@
 # Weather App (Node.js + Express)
 
+[![CI](https://github.com/kishorhange111/weather-app/actions/workflows/ci.yml/badge.svg)](https://github.com/kishorhange111/weather-app/actions/workflows/ci.yml)
+
 A server-rendered weather web app: type a city, and the app geocodes it to latitude/longitude and returns the current weather — temperature, feels-like temperature, humidity, wind speed and conditions.
 
-![weather icon](public/img/cloudy-day.png)
+<img src="public/img/cloudy-day.png" alt="Weather App icon" width="96">
+
+_The repo has no UI screenshot yet. The image above is the app's icon._
 
 ## Features
 - City search → coordinates via the **OpenWeatherMap Geocoding API**
@@ -13,7 +17,7 @@ A server-rendered weather web app: type a city, and the app geocodes it to latit
 - API keys loaded from environment variables — nothing secret in the code
 
 ## Tech stack
-Node.js · Express · Handlebars (hbs) · postman-request · vanilla JavaScript · CSS
+Node.js · Express · Handlebars (hbs) · postman-request · vanilla JavaScript · CSS · Bootstrap (CDN) · node:test · ESLint · GitHub Actions
 
 ## Project structure
 ```
@@ -30,6 +34,7 @@ weather-app/
 ├── templates/
 │   ├── views/              # index, weather, about, help, 404
 │   └── partials/           # header, footer
+├── test/                   # node:test suites (APIs mocked, no keys needed)
 ├── .env.example            # required environment variables
 └── package.json
 ```
@@ -53,3 +58,10 @@ Returns the Weatherstack current-conditions JSON, or `{ "error": "..." }` if the
 
 ## How it works
 `/weather` chains two callbacks: `geocode(city)` resolves the coordinates, then `forecast({ lat, lon })` fetches the current weather. Errors at either step are returned as JSON so the front-end can show a friendly message.
+
+## Development
+```bash
+npm test       # unit tests for geocode/forecast + HTTP tests for every route
+npm run lint   # ESLint (Node rules for the server, browser rules for public/js)
+```
+The tests replace `postman-request` with a fake (`test/helpers/fake-request.js`), so they make no network calls and need no API keys. GitHub Actions runs lint and the tests on Node 20 and 22 for every push.
