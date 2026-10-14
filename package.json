@@ -5,17 +5,30 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node --env-file=.env src/app.js",
-    "dev": "node --watch --env-file=.env src/app.js"
+    "dev": "node --watch --env-file=.env src/app.js",
+    "test": "node --test",
+    "lint": "eslint ."
   },
   "engines": {
     "node": ">=20.6"
   },
-  "keywords": ["nodejs", "express", "handlebars", "weather", "api"],
+  "keywords": [
+    "nodejs",
+    "express",
+    "handlebars",
+    "weather",
+    "api"
+  ],
   "author": "Kishor Hange",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "hbs": "^4.2.0",
     "postman-request": "^2.88.1-postman.32"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^15.15.0"
   }
 }
