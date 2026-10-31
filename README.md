@@ -23,20 +23,23 @@ Node.js · Express · Handlebars (hbs) · postman-request · vanilla JavaScript 
 ```
 weather-app/
 ├── src/
-│   ├── app.js              # Express server: routes, views, static files, /weather API
-│   └── utils/
-│       ├── geocode.js      # city -> { lat, lon }   (OpenWeatherMap)
-│       └── forecast.js     # { lat, lon } -> weather (Weatherstack)
+│   ├── server.js           # entry point: starts the HTTP server (npm start)
+│   ├── app.js              # Express app: routes, views, static files, /weather API (exported for tests)
+│   └── services/           # clients for the external APIs
+│       ├── geocode.js      #   city -> { lat, lon }   (OpenWeatherMap)
+│       └── forecast.js     #   { lat, lon } -> weather (Weatherstack)
+├── views/                  # Handlebars pages: index, weather, about, help, 404
+│   └── partials/           #   header, footer
 ├── public/                 # static assets served as-is
 │   ├── css/style.css
 │   ├── js/index.js         # form handling + fetch('/weather?city=...')
 │   └── img/
-├── templates/
-│   ├── views/              # index, weather, about, help, 404
-│   └── partials/           # header, footer
 ├── test/                   # node:test suites (APIs mocked, no keys needed)
+├── .github/workflows/ci.yml # lint + tests on every push and pull request
 ├── .env.example            # required environment variables
-└── package.json
+├── .nvmrc                  # Node version used in development and CI
+├── eslint.config.js
+└── package.json            # npm start / dev / lint / test / check
 ```
 
 ## Getting started
@@ -63,5 +66,6 @@ Returns the Weatherstack current-conditions JSON, or `{ "error": "..." }` if the
 ```bash
 npm test       # unit tests for geocode/forecast + HTTP tests for every route
 npm run lint   # ESLint (Node rules for the server, browser rules for public/js)
+npm run check  # both, exactly what CI runs
 ```
 The tests replace `postman-request` with a fake (`test/helpers/fake-request.js`), so they make no network calls and need no API keys. GitHub Actions runs lint and the tests on Node 20 and 22 for every push.

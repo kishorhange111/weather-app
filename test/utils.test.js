@@ -1,12 +1,12 @@
 /**
- * @file Unit tests for src/utils/geocode.js and src/utils/forecast.js.
+ * @file Unit tests for src/services/geocode.js and src/services/forecast.js.
  * The network is mocked (see helpers/fake-request.js).
  */
 const { test, beforeEach } = require("node:test");
 const assert = require("node:assert/strict");
 const fakeRequest = require("./helpers/fake-request");
-const geocode = require("../src/utils/geocode");
-const forecast = require("../src/utils/forecast");
+const geocode = require("../src/services/geocode");
+const forecast = require("../src/services/forecast");
 
 /** Wrap an error-first callback API in a promise: resolves to [error, data]. */
 const call = (fn, arg) => new Promise((resolve) => fn(arg, (error, data) => resolve([error, data])));

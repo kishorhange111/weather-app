@@ -2,7 +2,7 @@
  * @file Browser script for the home page search form.
  *
  * On submit it calls the server's /weather endpoint and writes the result
- * into the <p id="msg*"> placeholders in templates/views/index.hbs.
+ * into the <p id="msg*"> placeholders in views/index.hbs.
  */
 
 // Grab the elements once up front instead of on every search.
@@ -48,7 +48,7 @@ btn.addEventListener("submit", (e) => {
       msg3.textContent = `Feelslike Temperature : ${data.current.feelslike}`;
       msg4.textContent = `Humidity : ${data.current.humidity}`;
       msg5.textContent = `Wind Speed : ${data.current.wind_speed}`;
-      // msg2 is the last line on the page (see templates/views/index.hbs).
+      // msg2 is the last line on the page (see views/index.hbs).
       msg2.textContent = `Weather : ${data.current.weather_descriptions[0]}`;
     });
   });
