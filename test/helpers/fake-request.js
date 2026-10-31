@@ -1,7 +1,7 @@
 /**
  * @file Replace the `postman-request` module with a controllable fake.
  *
- * Must be required *before* src/utils/*.js, because they grab the module
+ * Must be required *before* src/services/*.js, because they grab the module
  * once at load time. Each test sets `fakeRequest.respond` to decide what the
  * "API" answers, and can inspect `fakeRequest.calls` to see the URLs used.
  * No real network traffic happens in the tests.
