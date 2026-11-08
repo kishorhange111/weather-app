@@ -23,7 +23,7 @@
   "author": "Kishor Hange",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.22.3",
+    "express": "^5.3.0",
     "hbs": "^4.4.0",
     "postman-request": "^2.88.1-postman.52"
   },
