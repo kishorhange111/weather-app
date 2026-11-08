@@ -28,7 +28,7 @@
     "postman-request": "^2.88.1-postman.52"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.5",
+    "@eslint/js": "^10.0.1",
     "eslint": "^9.39.5",
     "globals": "^15.15.0"
   }
