@@ -53,6 +53,15 @@ npm start                   # http://localhost:4000
 ```
 `npm run dev` restarts the server automatically on file changes.
 
+## Environment variables
+Set these in `.env` (copied from `.env.example`, git-ignored):
+
+| Variable | Required | Description |
+|---|---|---|
+| `WEATHERSTACK_API_KEY` | yes | API key for [Weatherstack](https://weatherstack.com/) (current weather) |
+| `OPENWEATHER_API_KEY` | yes | API key for the [OpenWeatherMap Geocoding API](https://openweathermap.org/api/geocoding-api) (city → coordinates) |
+| `PORT` | no | Port the server listens on (default `4000`) |
+
 ## API
 ```
 GET /weather?city=Pune
@@ -69,3 +78,6 @@ npm run lint   # ESLint (Node rules for the server, browser rules for public/js)
 npm run check  # both, exactly what CI runs
 ```
 The tests replace `postman-request` with a fake (`test/helpers/fake-request.js`), so they make no network calls and need no API keys. GitHub Actions runs lint and the tests on Node 20 and 22 for every push.
+
+## License
+MIT. See [LICENSE](LICENSE).
