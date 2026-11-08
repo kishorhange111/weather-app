@@ -23,9 +23,9 @@
   "author": "Kishor Hange",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
-    "hbs": "^4.2.0",
-    "postman-request": "^2.88.1-postman.32"
+    "express": "^4.22.3",
+    "hbs": "^4.4.0",
+    "postman-request": "^2.88.1-postman.52"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
